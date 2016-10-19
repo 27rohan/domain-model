@@ -34,26 +34,26 @@ struct Money{
     }
     
     func add(m2: Money) -> Money{
-        let added_value = self.convert(currency: "USD")+m2.convert(currency: "USD")
-        return Money(amt: added_value, currency: "USD")
+        let added_value = self.amount+m2.convert(currency: self.currency)
+        return Money(amt: added_value, currency: self.currency)
         
     }
 
     func subtract(m2: Money) -> Money{
-        let added_value = self.convert(currency: "USD")-m2.convert(currency: "USD")
-        return Money(amt: added_value, currency: "USD")
+        let added_value = self.amount-m2.convert(currency: self.currency)
+        return Money(amt: added_value, currency: self.currency)
         
     }
     
     func multiply(m2: Money) -> Money{
-        let added_value = self.convert(currency: "USD")*m2.convert(currency: "USD")
-        return Money(amt: added_value, currency: "USD")
+        let added_value = self.amount*m2.convert(currency: self.currency)
+        return Money(amt: added_value, currency: self.currency)
         
     }
     
     func divide(m2: Money) -> Money{
-        let added_value = self.convert(currency: "USD")/m2.convert(currency: "USD")
-        return Money(amt: added_value, currency: "USD")
+        let added_value = self.amount/m2.convert(currency: self.currency)
+        return Money(amt: added_value, currency: self.currency)
         
     }
     func convert(currency: String) -> Double{
@@ -134,13 +134,13 @@ struct Money{
     
 }//struct Money
 
-
+/*
 
 let m = Money(amt: 32.0, currency: "USD")
 print("Number of euros = \(m.convert(currency:"GBP"))")
 print(m.amount)
 print(m.add(m2: Money(amt: 32.0, currency: "GBP")).amount)
-
+*/
 /*
 func add(m1: Money, m2: Money) -> Double{
     return m1.convert(currency:"USD") + m2.convert(currency:"USD")
@@ -156,33 +156,27 @@ func divide(m1: Money, m2: Money) -> Double{
     return m1.convert(currency:"USD") / m2.convert(currency:"USD")
 }
 */
+/*
 func math(){
     //take user input for array of moneys and one operation. Take care of divide by 0
 }
+*/
 
 
 class Job{
-    
-    init(title: String, salary: Double, hours: Double, type: String){
-        if type == "per-hour"{
-            self.title = title
-            self.salary = calculateIncome(rate: salary, hours: hours)
-        }
-        else if type == "per-year"{
-            self.title = title
-            self.salary = salary
-        }
-    }
-    static let NONE = Job(title: "(NONE)", salary: 0.0, hours: 0.0, type: "(NONE)")
-
     var title = ""
     
     var salary = 0.0
     
+    init(title: String, salary: Double){
+            self.title = title
+            self.salary = salary
 
+    }
+    static let NONE = Job(title: "(NONE)", salary: 0.0)
     
-    func calculateIncome (rate: Double, hours: Double) -> Double{
-        return hours*rate
+    func calculateIncome (hours: Double) -> Double{
+        return hours*self.salary
     }
     
     func raise(increment: Double){
@@ -285,10 +279,11 @@ class Person{
     */
     
 }
+/*
 var p = Person(fn:"Rohan",ln:"Thakkar",age:19)
 
 p.representation()
-
+*/
 class Family{
 
     var members = [Person]();
@@ -317,10 +312,11 @@ class Family{
         self.members.append(Person(fn:fn,ln:ln, age: 0))
     }
 }
-
+/*
 var a = Person(fn:"Rohan",ln:"Thakkar",age:19)
 var b = Person(fn:"Lol",ln:"Okay",age:39)
 
 var f = Family(a: a,b:b)
 print(f.householdIncome())
 f.haveChild(fn:"ro",ln:"to")
+*/
