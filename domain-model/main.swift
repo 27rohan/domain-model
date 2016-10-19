@@ -9,25 +9,10 @@
 import Foundation
 
 struct Money{
-    // Do not forget the () here
-    /*var pennies : Int32 = 0
-    
-    var amount: Int32{
-        get{return pennies/100
-        }
-        set(newvalue){ self.pennies = newvalue * 2}
-    }
-    */
-    
-    
+
     var amount: Double = 0.0
     var currency = ""
-    /*
-    var frozen : Bool{
-        get{return false;}
-    }
-    */
-    // constructor. Swift would have created one for you unless you put one yourself. Now that you have, you have to provide the arguments in the defined constructor
+
     init(amt: Double, currency: String){
         self.amount = amt
         self.currency = currency
@@ -229,30 +214,12 @@ class Person{
         }
     }
     
-    /*
-    var job: Job
-    var spouse: Person
-    */
-    
-    //static var totalpopulation = 0
     
     init(fn:String, ln:String, age: UInt8){
         self.firstName = fn
         self.lastName = ln
         self.age = age
-        //Person.totalpopulation += 1
-        
-        
-        /*
-        if age>16{
-            self.job = Job()
-        }
-        */
-        /*
-        if age>18{
-            self.spouse = Person()
-        }
-         */
+
     }
     
     func representation(){
@@ -260,23 +227,7 @@ class Person{
         print("Last Name:"+String(self.firstName))
         print("Age:"+String(self.age))
     }
-    /*
-    func sayHowdy(){
-        print("\(firstName) says Hello")
-        
-    }
-    
-    func printpopulation(){
-        print("Current population: \(Person.totalpopulation)")
-    }
-    
-    
-    func getOlder(){
-        print("\(self.firstName) has a birthday. Yay!")
-        self.age += 1
-        print("\(self.firstName) is now \(self.age) years old")
-    }
-    */
+
     
 }
 /*
@@ -284,6 +235,7 @@ var p = Person(fn:"Rohan",ln:"Thakkar",age:19)
 
 p.representation()
 */
+
 class Family{
 
     var members = [Person]();
